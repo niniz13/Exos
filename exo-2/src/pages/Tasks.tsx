@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import { fetchTasks } from "../services/taskService";
-import { setToken } from "../services/loginService";
 import { useEffect, useState } from "react";
 
 type Task = {

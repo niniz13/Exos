@@ -1,14 +1,14 @@
 const API_URL = "http://localhost:3001";
 
-export async function setToken() {
+export async function userLogin(email: string, password: string) {
   const method = "POST";
 
   const response = await fetch(`${API_URL}/login`, {
     method,
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      email: "student@example.com",
-      password: "password",
+      email: email,
+      password: password,
     }),
   });
 
@@ -19,5 +19,5 @@ export async function setToken() {
   const data = await response.json();
   localStorage.setItem("token", data.token);
 
-  return await response.json();
+  return await data.token;
 }
